@@ -1,0 +1,37 @@
+The design of the Tokenizer is using a Map structure (also like a dictionary) to hold all of the symbols and reserve words. 
+
+Each reserve word and symbol is linked to the assigned integer value.
+ 
+A list data structure (ArrayList) of type string is used to store the valid tokens acquired when reading from the file.
+A list data structure (ArrayList) of type Character is used to hold the characters that are used for spaces, tabs, and returns.
+A line number of type integer is used to count the current line being read from the file (incremented when a '\n' aka new line is found).
+Strings holding regular expressions are used to check for integers and Identifiers that follow the CORE Language rules.
+A string builder is used to build up the strings character by character and add them to the token stream (list that holds valid tokens) for comparing to the map.
+
+The mapFill method is used to populate the CORE Language map with all reserve words and symbols with their corresponding integers. Only actual integers, identifiers, and end of file tokens are special cases.
+
+The nextChar method is used to read in the next character from the file (using BufferedReader). If the reading returns a -1, then the file has reached the end.
+
+The currentToken method grabs a token from the token stream (list of valid core tokens are stored) based on the given position in the list (meaning index of 0 grabs first token).
+The nextToken method just increases the index by 1 for moving to the next token in the stream.
+
+The errorFound method returns a error found while reading from the file and which line the error is found before ending the program.
+
+The checkAndPrintValidTokenStream method reads in the valid token stream (stored during tokenize method) and compares each token in the stream to the Core map and returns the integer assigned to that element.
+	The special cases are looking at digits (integers), identifiers, and End of File. Tokens are compared to the regular expressions that check for valid digits and valid identifiers in the CORE Language. 
+	If the cases pass, the resulting integers are assigned. The End of File is added after all tokens are checked and assigned integers are returned.
+	All assigned integers retrieved from the map are added to a list of type integer and are printed to the screen.
+
+The tokenize method is where all the magic happens. In this method, each character is read from the file, checked for being a digit, uppercase character, lowercase character, a symbol, and whitespace characters.
+	While each character is being read, strings built up of these characters (while reading line by line character by character), and later checked for following rules of the CORE Language.
+	If any errors are found after comparing the built up strings against the map, the error is reported to the console and the Tokenizer terminates.
+
+The main method just creates the Tokenizer object and reads in the text file into the tokenize method.
+
+The inspiration behind this approach is the idea that each valid token is associated with a unique integer (this is why a map structure was chosen).
+I chose reading character by character because it's easier to catch errors early on then just reading a whole line at a time. 
+Plus, there are cases where something like programbegin can happen and reading character by character is a better option to avoid counting that one word as 2 valid tokens.
+
+These are the reasons why I went with the approach of the map and reading character by character.
+
+TL:DR -> Easier to compare character by character for errors, and a map fits since the reserved words and symbols all have assigned integers.
