@@ -1,0 +1,9 @@
+program
+	int X, Y;
+	begin
+		X = Y + 1;
+		read X;
+		read Y;
+		write X;
+		write Y;
+	end

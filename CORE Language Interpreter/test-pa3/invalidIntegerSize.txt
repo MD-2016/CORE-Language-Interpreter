@@ -1,0 +1,9 @@
+program
+int X,Y;
+begin 
+  read X;
+  while(X >= 0)loop
+    write X;
+    X=X+999999;
+    end;
+end

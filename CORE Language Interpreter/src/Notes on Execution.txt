@@ -1,0 +1,17 @@
+This project includes the following files...
+
+	1. ExecuteCoreProgram.java
+	2. IDRedeclared.java
+	3. IDUndeclared.java
+	4. IDUsedBeforeAssigned.java
+	5. InterpreterException.java
+	6. InvalidToken.java
+	7. Parser.java
+	8. ParseTree.java
+	9. ParseTreeInterface.java
+	10. Token.java
+	11. Tokenizer.java
+	12. TokenizerInterface.java
+	13. UnexpectedToken.java
+	
+Like the Parser programming assignment, files 2-6, and 13 are for handling exceptions. I only wrote interfaces for the Tokenizer and the ParseTree since I felt those were necessary in showing how the Parser works and the Tokenizer itself. The Parser (like the previous programming assignment) builds the parse tree from the tokens found by the tokenizer. The Parser will check for parsing errors that violate the core grammar, Tokenizer checks for errors that violate the core grammar, and the execution (ExecuteCoreProgram.java) runs the Core program. the  Token is used for tokenizer to store the tokens and their associated line number which the Parser later parses which in turn builds the ParseTree (if no errors are found). The execution then runs the created ParseTree. The only errors the execution encounters is runtime errors like integers going out of bounds from calculation or upon entry, undeclared variables being used in calculations, and user input not being integers. The execution will print the results to the console after evaulating and running the calculation given in the Core program. 

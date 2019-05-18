@@ -1,0 +1,6 @@
+program
+	int X, Y, Z;
+	begin
+		read X, Y, Z;
+		write X, Y, Z;
+	end

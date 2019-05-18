@@ -1,0 +1,1 @@
+Error: [Line 4] not a CORE Integer: Must be 8 digits in length and no other characters 1234567890

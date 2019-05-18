@@ -1,0 +1,1 @@
+Error: [Line 2] Invalid CORE Identifier: Must not be longer than 8 characters and start with uppercare character A1234B
